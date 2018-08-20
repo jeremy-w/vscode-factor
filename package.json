@@ -4,7 +4,7 @@
     "description": "Factor programming language",
     "version": "0.3.0",
     "publisher": "dexterhaslem",
-    "icon": "Factor_256x256.png",
+    "icon": "factor_256x256.png",
     "homepage": "https://github.com/DexterHaslem/vscode-factor",
     "repository": {
         "type": "git",
