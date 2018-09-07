@@ -1,0 +1,204 @@
+{
+  "fileTypes": [
+    "factor",
+    "facts"
+  ],
+  "foldingStartMarker": "^\\s*(M|C)?:|#(V|H|C)\\{",
+  "foldingStopMarker": "^\\s*$",
+  "keyEquivalent": "^~F",
+  "repository": {
+    "escaped_characters": {
+      "patterns": [
+        {
+          "match": "\\\\(\\\\|[enrts'\"?]|[0-3]\\d{,2}|[4-7]\\d?|u[a-fA-F0-9]{,2})",
+          "name": "constant.character.escape.factor"
+        },
+        {
+          "match": "\\\\.",
+          "name": "invalid.illegal.unknown-escape.factor"
+        }
+      ]
+    }
+  },
+  "uuid": "3C9C9C2A-314A-475B-A4E4-A68BAAF3F36E",
+  "patterns": [
+    {
+      "match": "(^|(?<=\\s))(:)\\s+([^\\s]+)\\s",
+      "captures": {
+        "3": {
+          "name": "entity.name.function.factor"
+        },
+        "4": {
+          "name": "comment.stack-effect.factor"
+        },
+        "2": {
+          "name": "keyword.colon.factor"
+        }
+      },
+      "name": "definition.word.factor"
+    },
+    {
+      "match": "(^|(?<=\\s))(C:)\\s+([^\\s]+)\\s",
+      "captures": {
+        "3": {
+          "name": "entity.name.method.factor"
+        },
+        "4": {
+          "name": "comment.stack-effect.factor"
+        },
+        "2": {
+          "name": "keyword.colon.factor"
+        }
+      },
+      "name": "definition.word.class.factor"
+    },
+    {
+      "match": "(^|(?<=\\s))(M:)\\s+([^\\s]+)\\s+([^\\s]+)\\s",
+      "captures": {
+        "3": {
+          "name": "entity.name.class.factor"
+        },
+        "4": {
+          "name": "entity.name.method.factor"
+        },
+        "5": {
+          "name": "comment.stack-effect.factor"
+        },
+        "2": {
+          "name": "keyword.colon.factor"
+        }
+      },
+      "name": "definition.word.method.factor"
+    },
+    {
+      "match": "(^|(?<=\\s))(G(ENERIC)?:)\\s+([^\\s]+)\\s",
+      "captures": {
+        "4": {
+          "name": "entity.name.generic.factor"
+        },
+        "5": {
+          "name": "comment.stack-effect.factor"
+        },
+        "2": {
+          "name": "keyword.colon.factor"
+        }
+      },
+      "name": "definition.word.generic.factor"
+    },
+    {
+      "match": "(^|(?<=\\s))(TUPLE:)\\s+([^\\s]+)\\s+(([^\\s]+)+)",
+      "captures": {
+        "3": {
+          "name": "entity.name.class.factor"
+        },
+        "2": {
+          "name": "storage.type.factor"
+        }
+      },
+      "name": "meta.class.factor"
+    },
+    {
+      "match": "(^|(?<=\\s))(drop|2drop|3drop|keep|2keep|3keep|nip|2nip|dup|2dup|3dup|dupd|over|pick|tuck|swap|rot|-rot|roll|-roll|slip|2swap|swapd|>r|r>)(\\s|$)",
+      "name": "keyword.control.stack.factor"
+    },
+    {
+      "match": "(^|(?<=\\s))(get|set)(\\s|$)",
+      "name": "keyword.control.variable.factor"
+    },
+    {
+      "match": "(^|(?<=\\s))(if|when|unless|if*|unless*|when*)\\*?(\\s|$)",
+      "name": "keyword.control.flow.factor"
+    },
+    {
+      "end": "(?<=\\s);(\\s|$)",
+      "begin": "(^|(?<=\\s))(USING:)",
+      "patterns": [
+        {
+          "match": "(^|(?<=\\s))[^\\s]+(\\s|$)",
+          "name": "constant.namespace.factor"
+        }
+      ],
+      "name": "keyword.control.using.factor"
+    },
+    {
+      "end": "(?<=\\s);(\\s|$)",
+      "begin": "(^|(?<=\\s))(REQUIRES:)",
+      "patterns": [
+        {
+          "match": "(^|(?<=\\s))[^\\s]+(\\s|$)",
+          "name": "constant.namespace.factor"
+        }
+      ],
+      "name": "keyword.control.requires.factor"
+    },
+    {
+      "match": "(^|(?<=\\s))(f|t)(\\s|$)",
+      "name": "constant.language.factor"
+    },
+    {
+      "match": "(^|(?<=\\s))CHAR:\\s+[^\\s]+(\\s|$)",
+      "name": "constant.character.factor"
+    },
+    {
+      "match": "(^|(?<=\\s))-?+\\d+\\.\\d+(E(\\+|-)\\d+)?(\\s|$)",
+      "name": "constant.numeric.float.factor"
+    },
+    {
+      "match": "(^|(?<=\\s))-?\\d+/-?\\d+(\\s|$)",
+      "name": "constant.numeric.rational.factor"
+    },
+    {
+      "end": "\"",
+      "begin": "\"",
+      "patterns": [
+        {
+          "include": "#escaped_characters"
+        }
+      ],
+      "name": "string.quoted.double.factor"
+    },
+    {
+      "end": "\">",
+      "begin": "<\"",
+      "patterns": [
+        {
+          "include": "#escaped_characters"
+        }
+      ],
+      "name": "string.quoted.double.multiline.factor"
+    },
+    {
+      "end": "^;$",
+      "begin": "(^|(?<=\\s))(STRING:)\\s+(\\S+)",
+      "contentName": "string.unquoted.heredoc.factor",
+      "captures": {
+        "3": {
+          "name": "entity.name.heredoc.factor"
+        },
+        "2": {
+          "name": "keyword.colon.factor"
+        }
+      },
+      "name": "definition.word.heredoc.factor"
+    },
+    {
+      "match": "inline|foldable",
+      "name": "storage.modifier.factor"
+    },
+    {
+      "match": "(^|(?<=\\s))#?!(\\s.*)?$",
+      "name": "comment.line.factor"
+    },
+    {
+      "end": "(^|(?<=\\s))\\)",
+      "begin": "\\((?=\\s)",
+      "name": "comment.parens.factor"
+    },
+    {
+      "match": "\\b[^\\s]+:\\s+[^\\s]+(\\s|$)",
+      "name": "keyword.control.postpone.factor"
+    }
+  ],
+  "name": "Factor",
+  "scopeName": "source.factor"
+}

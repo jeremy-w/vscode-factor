@@ -39,7 +39,7 @@
             {
                 "language": "factor",
                 "scopeName": "source.factor",
-                "path": "./syntaxes/factor.tmLanguage"
+                "path": "./syntaxes/factor.tmLanguage.json"
             }
         ],
         "snippets": [
