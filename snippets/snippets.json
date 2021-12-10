@@ -19,7 +19,7 @@
 	},
 	"functor": {
 		"prefix": "functor",
-		"body": "\nFUNCTOR: $1 ( $2 -- $3 )\n$4\nWHERE\n$0\n;FUNCTOR\n",
+		"body": "\n<FUNCTOR: $1 ( $2 -- $3 )\n$4\nWHERE\n$0\n;FUNCTOR>\n",
 		"description": "functor",
 		"scope": "source.factor"
 	},
