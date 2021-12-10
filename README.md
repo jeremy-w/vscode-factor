@@ -23,8 +23,6 @@ Here is a list of included snippets
 
 
 ## Factor listener integration
-there is a vscode integration available that is not in the latest release
-(0.97 at time of writing). if you are running factor from **sources** / dev builds,
 You can do the following to fire up vscode from your scaffold directly:
 
 	USE: editors.visual-studio-code.factor
