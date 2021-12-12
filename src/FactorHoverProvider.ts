@@ -5,14 +5,17 @@ import {
   Position,
   ProviderResult,
   TextDocument,
-} from "vscode";
+} from 'vscode'
 
 export default class FactorHoverProvider implements HoverProvider {
   provideHover(
     document: TextDocument,
     position: Position,
-    token: CancellationToken
+    token: CancellationToken,
   ): ProviderResult<Hover> {
-    throw new Error("Method not implemented.");
+    const placeholder = new Hover(
+      'One day, this will tell you something useful.',
+    )
+    return placeholder
   }
 }
