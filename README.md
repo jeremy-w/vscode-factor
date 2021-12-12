@@ -21,13 +21,12 @@ Here is a list of included snippets
 - [
 - [1
 
-
 ## Factor listener integration
+
 You can do the following to fire up vscode from your scaffold directly:
 
-	USE: editors.visual-studio-code.factor
-	edit
-
+    USE: editors.visual-studio-code.factor
+    edit
 
 All the hard work was already done thanks to the factor/misc/Factor.tmbundle files,
 This extension was generated from them. Thanks to whoever made that!

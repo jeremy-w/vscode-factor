@@ -1,8 +1,5 @@
 {
-  "fileTypes": [
-    "factor",
-    "facts"
-  ],
+  "fileTypes": ["factor", "facts"],
   "foldingStartMarker": "^\\s*(M|C)?:|#(V|H|C)\\{",
   "foldingStopMarker": "^\\s*$",
   "keyEquivalent": "^~F",
