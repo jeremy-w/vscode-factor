@@ -1,6 +1,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
+import FactorHoverProvider from "./FactorHoverProvider";
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -20,6 +21,10 @@ export function activate(context: vscode.ExtensionContext) {
   });
 
   context.subscriptions.push(disposable);
+  // ???: Is there anything we can do to usefully trigger signature help? It expects a "invoke" or "next param" trigger char, but the closest we can come is likely a single whitespace, then look up the previous word.
+  context.subscriptions.push(
+    vscode.languages.registerHoverProvider("factor", new FactorHoverProvider())
+  );
 }
 
 // this method is called when your extension is deactivated
