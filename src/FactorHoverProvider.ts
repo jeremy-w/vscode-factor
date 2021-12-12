@@ -13,6 +13,7 @@ export default class FactorHoverProvider implements HoverProvider {
     position: Position,
     token: CancellationToken,
   ): ProviderResult<Hover> {
+    console.log('hover!', document, position, token)
     const placeholder = new Hover(
       'One day, this will tell you something useful.',
     )

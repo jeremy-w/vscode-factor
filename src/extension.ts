@@ -21,7 +21,7 @@ export function activate(context: vscode.ExtensionContext) {
   })
 
   context.subscriptions.push(disposable)
-  // ???: Is there anything we can do to usefully trigger signature help? It expects a "invoke" or "next param" trigger char, but the closest we can come is likely a single whitespace, then look up the previous word.
+  // ???: SignatureHelpProvider: Is there anything we can do to usefully trigger signature help? It expects a "invoke" or "next param" trigger char, but the closest we can come is likely a single whitespace, then look up the previous word.
   context.subscriptions.push(
     vscode.languages.registerHoverProvider('factor', new FactorHoverProvider()),
   )

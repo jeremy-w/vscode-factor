@@ -21,7 +21,8 @@
     "Snippets"
   ],
   "activationEvents": [
-    "onCommand:factor.helloWorld"
+    "onCommand:factor.helloWorld",
+    "onLanguage:factor"
   ],
   "main": "./out/extension.js",
   "contributes": {
