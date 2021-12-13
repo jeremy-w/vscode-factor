@@ -26,6 +26,26 @@
   ],
   "main": "./out/extension.js",
   "contributes": {
+    "configuration": {
+      "title": "Factor",
+      "properties": {
+        "factor.rootDir": {
+          "description": "Full path to the factor root directory to use when starting a listener.",
+          "type": "string",
+          "order": 0
+        },
+        "factor.binary": {
+          "markdownDescription": "Full path to the factor executable to use when starting a listener. If not set, will be inferred from the platform and `#factor.rootDir#`.",
+          "type": "string",
+          "order": 1
+        },
+        "factor.image": {
+          "markdownDescription": "Full path to the factor image to use when starting a listener. If not set, defaults to `factor.image` in the `#factor.rootDir#`.",
+          "type": "string",
+          "order": 2
+        }
+      }
+    },
     "commands": [
       {
         "command": "factor.helloWorld",
