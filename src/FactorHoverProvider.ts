@@ -6,6 +6,7 @@ import {
   ProviderResult,
   TextDocument,
 } from 'vscode'
+import { run } from './FuelListener'
 
 const factorWordRegex = /\S+/
 
@@ -23,10 +24,13 @@ export default class FactorHoverProvider implements HoverProvider {
     }
 
     const word = document.getText(wordRange)
-    const placeholder = new Hover(
-      `One day, this will tell you something useful about \`${word}\`.`,
-      wordRange,
-    )
-    return placeholder
+    const result = run(
+      `USING: fuel io ; "${word}" fuel-word-synopsis write`,
+    ).then((str) => {
+      if (str) {
+        return new Hover(str, wordRange)
+      }
+    })
+    return result
   }
 }
