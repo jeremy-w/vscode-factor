@@ -88,15 +88,19 @@ export const factorImagePath = (): string | undefined => {
 export const run = async (text: string): Promise<string> => {
   const child = spawn(factorBinaryPath(), [`-e=${text}`])
   child.stdout.setEncoding('utf8')
+  console.log('run:', { text, child })
   return new Promise((res, rej) => {
     let reply = ''
     child.stdout.on('data', (chunk: string) => {
+      console.log('run: chunk', chunk)
       reply += chunk
     })
     child.stdout.on('end', () => {
+      console.log('run: end', reply)
       res(reply)
     })
     child.on('error', (err) => {
+      console.error('run failed:', err)
       rej(err)
     })
   })
