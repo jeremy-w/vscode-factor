@@ -24,8 +24,28 @@ export default class FactorHoverProvider implements HoverProvider {
     }
 
     const word = document.getText(wordRange)
+
+    const usings = 'fuel io'.split(' ')
+    const text = document.getText()
+    // We rely on convention here in hopes of avoiding matching within a string.
+    const r = /^USING:[^;]+;/gm
+    let match
+    while ((match = r.exec(text)) !== null) {
+      const vocabs = match[0]
+        .split(' ')
+        .filter((it) => it !== 'USING:' && it !== ';')
+      usings.push(...vocabs)
+    }
+
+    const within = /^IN: ([^\s]+)/m.exec(text)?.[1] ?? 'fuel'
+    usings.push(within)
+    // XXX: might need to handle within.private if it exists
+
+    // This takes a noticeable amount of time when there are many or large vocabs, but managing a persistent listener would be more challenging.
     const result = run(
-      `USING: fuel io ; "${word}" fuel-word-synopsis write`,
+      `USING: ${usings.join(
+        ' ',
+      )} ; IN: ${within} "${word}" fuel-word-synopsis write`,
     ).then((str) => {
       if (str) {
         return new Hover(str, wordRange)
