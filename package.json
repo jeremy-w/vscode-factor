@@ -2,7 +2,7 @@
   "name": "factor",
   "displayName": "Factor",
   "description": "Factor programming language",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "publisher": "tk",
   "icon": "factor_256x256.png",
   "homepage": "https://github.com/DexterHaslem/vscode-factor",
